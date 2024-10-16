@@ -3,14 +3,17 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="CustomerAggregate\" />
-    <Folder Include="UserAggregate\" />
-    <Folder Include="ServiceAggregate\" />
-    <Folder Include="ServiceProviderAggregate\" />
+    <Compile Remove="ServiceAggregate\**" />
+    <EmbeddedResource Remove="ServiceAggregate\**" />
+    <None Remove="ServiceAggregate\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Bson" Version="3.0.0" />
   </ItemGroup>
 
 </Project>
