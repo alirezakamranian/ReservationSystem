@@ -15,6 +15,7 @@ namespace Domain.ServiceProviderAggregate
         public string Id { get; set; }
         public string BusinessName { get; set; }
         public string Biography { get; set; }
+        public List<Service> Services { get; set; }
         public string UserId { get; set; }
     }
 }
