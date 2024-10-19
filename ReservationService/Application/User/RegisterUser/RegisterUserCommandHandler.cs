@@ -29,7 +29,7 @@ namespace Application.User.RegisterUser
                 Email =request.Email,
                 Password= request.Password,
                 Role = (UserRoles)request.Role
-            });
+            }, cancellationToken: cancellationToken);
 
             return new RegisterUserCommandResponse();
         }

@@ -44,8 +44,8 @@ namespace Application.InternalServices
         {
             var tokenValidationParameters = new TokenValidationParameters
             {
-                ValidateAudience = true,
-                ValidateIssuer = true,
+                ValidateAudience = false,
+                ValidateIssuer = false,
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(
                     Encoding.UTF8.GetBytes(_configuration["AuthOptions:Key"])),

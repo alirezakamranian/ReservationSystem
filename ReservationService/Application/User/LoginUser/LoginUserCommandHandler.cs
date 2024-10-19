@@ -26,7 +26,7 @@ namespace Application.User.LoginUser
                 .Filter.Eq(u => u.Email, request.Email);
 
             var user = await _context.Users
-                .Find(filter).FirstOrDefaultAsync();
+                .Find(filter).FirstOrDefaultAsync(cancellationToken: cancellationToken);
 
             if (user == null)
                 throw new InvalidUserCredentialsException();
@@ -51,7 +51,7 @@ namespace Application.User.LoginUser
                      ExpireTime = DateTime.Now.AddDays(30)});
 
             var result = await _context.Users
-                .UpdateOneAsync(filter, update);
+                .UpdateOneAsync(filter, update, cancellationToken: cancellationToken);
 
             return new LoginUserCommandResponse(accessToken,refreshToken);
         }

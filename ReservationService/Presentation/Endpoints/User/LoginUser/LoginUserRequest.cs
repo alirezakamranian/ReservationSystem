@@ -1,4 +1,4 @@
 ﻿namespace Presentation.Endpoints.User.LoginUser
 {
-    public record LoginUserRequest(string email,string password);
+    public record LoginUserRequest(string Email,string Password);
 }

@@ -12,9 +12,9 @@ namespace Presentation.Endpoints.User.RegisterUser
     {
         public void MapEndpoint(IEndpointRouteBuilder app)
         {
-            app.MapPost("/user", async ([FromBody] RegisterUserRequest request, IMediator mediator, CancellationToken cancellationToken) =>
+            app.MapPost("/user/register", async ([FromBody] RegisterUserRequest request, IMediator mediator, CancellationToken cancellationToken) =>
             {
-                var command = new RegisterUserCommand(request.name, request.email, request.password, request.role);
+                var command = new RegisterUserCommand(request.Name, request.Email, request.Password, request.Role);
 
                 var response = await mediator.Send(command, cancellationToken);
 

@@ -2,6 +2,6 @@
 
 namespace Presentation.Endpoints.User.RegisterUser
 {
-    public record RegisterUserRequest(string name, string email, string password, RegisterUserRoles role);
+    public record RegisterUserRequest(string Name, string Email, string Password, RegisterUserRoles Role);
 
 }

@@ -12,7 +12,7 @@ namespace Presentation.Endpoints.User.LoginUser
         {
             app.MapPost("/user/login", async ([FromBody] LoginUserRequest request, IMediator mediator, CancellationToken cancellationToken) =>
             {
-                var command = new LoginUserCommand(request.email, request.password);
+                var command = new LoginUserCommand(request.Email, request.Password);
 
                 var response = await mediator.Send(command, cancellationToken);
 
