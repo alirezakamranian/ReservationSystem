@@ -10,7 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 //                                      services container.
 
 builder.Services.RegisterAppServices();
+builder.Services.RegisterCustomServices();
 builder.Services.AddEndpoints();
+
 var app = builder.Build();
 
 //                                     HTTP request pipeline.

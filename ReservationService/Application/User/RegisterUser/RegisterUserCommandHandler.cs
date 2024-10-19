@@ -1,4 +1,5 @@
-﻿using Domain.UserAggregate;
+﻿using Domain.Constants;
+using Domain.UserAggregate;
 using Infrastructure.DataAccess;
 using MediatR;
 using MongoDB.Driver;
@@ -15,16 +16,19 @@ namespace Application.User.RegisterUser
         public async Task<RegisterUserCommandResponse> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
             var filter = Builders<Domain.UserAggregate.User>
-                .Filter.Eq(u => u.Email, request.Password);
+                .Filter.Eq(u => u.Email, request.Email);
 
-            if (await _context.Users.Find(u => u.Password.Equals(request.Password)).AnyAsync(cancellationToken))
+            if (await _context.Users.Find(u =>
+                u.Password.Equals(request.Password))
+                    .AnyAsync(cancellationToken))
                 throw new UserAlredyExsistsException();
 
             await _context.Users.InsertOneAsync(new()
             {
                 Name = request.Name,
                 Email =request.Email,
-                Password= request.Password
+                Password= request.Password,
+                Role = (UserRoles)request.Role
             });
 
             return new RegisterUserCommandResponse();

@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Presentation.Endpoints.Abstractions;
 using System.Runtime.CompilerServices;
 
-namespace Presentation.Endpoints.User
+namespace Presentation.Endpoints.User.RegisterUser
 {
     public class RegisterUserEndpoint : IEndpoint
     {
-        public void MapEndpoint( IEndpointRouteBuilder app)
+        public void MapEndpoint(IEndpointRouteBuilder app)
         {
             app.MapPost("/user", async ([FromBody] RegisterUserRequest request, IMediator mediator, CancellationToken cancellationToken) =>
             {
-                var command = new RegisterUserCommand(request.name, request.email, request.password);
+                var command = new RegisterUserCommand(request.name, request.email, request.password, request.role);
 
                 var response = await mediator.Send(command, cancellationToken);
 

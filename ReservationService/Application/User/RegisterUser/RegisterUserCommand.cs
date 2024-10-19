@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Domain.Constants;
+using MediatR;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,6 @@ using System.Threading.Tasks;
 
 namespace Application.User.RegisterUser
 {
-    public record RegisterUserCommand(string Name, string Email, string Password)
+    public record RegisterUserCommand(string Name, string Email, string Password,RegisterUserRoles Role)
      : IRequest<RegisterUserCommandResponse>;
 }

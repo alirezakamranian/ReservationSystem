@@ -18,7 +18,7 @@ namespace Infrastructure.DataAccess
         public MongoContext()
         {
             _client = new MongoClient("mongodb://localhost:27017");
-            _database = _client.GetDatabase("Paltform");
+            _database = _client.GetDatabase("ReservationSystem");
 
             Users = _database.GetCollection<User>("Users");
             ServiceProviders = _database.GetCollection<ServiceProvider>("ServiceProviders");

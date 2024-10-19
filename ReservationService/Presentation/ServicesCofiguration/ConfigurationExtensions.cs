@@ -1,5 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using Application;
+using Application.InternalServices;
+using Application.InternalServices.Abstractions;
 using Infrastructure.DataAccess;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Presentation.Endpoints.Abstractions;
@@ -25,7 +27,8 @@ namespace Presentation.ServicesCofiguration
 
         public static void RegisterCustomServices(this IServiceCollection services)
         {
-            
+            //TokenGenerator
+            services.AddSingleton<ITokenGenerator, TokenGenerator>();
         }
 
         public static IServiceCollection AddEndpoints(this IServiceCollection services)
