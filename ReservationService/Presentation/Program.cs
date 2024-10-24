@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 //                                      services container.
 
-builder.Services.RegisterAppServices();
+builder.Services.RegisterAppServices(builder);
 builder.Services.RegisterCustomServices();
 builder.Services.AddEndpoints();
 
@@ -18,6 +18,9 @@ var app = builder.Build();
 //                                     HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapEndpoints();
 

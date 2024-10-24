@@ -1,4 +1,4 @@
-﻿using Domain.CustomerAggregate;
+﻿
 using Domain.ServiceProviderAggregate;
 using Domain.UserAggregate;
 using MongoDB.Driver;
@@ -16,6 +16,5 @@ namespace Infrastructure.DataAccess
         public IMongoCollection<User> Users { get; set; }
         public IMongoCollection<ServiceProvider> ServiceProviders{ get; set; }
         public IMongoCollection<ServiceReservation> ServiceReservations { get; set; }
-        public IMongoCollection<Customer> Customers { get; set; }
     }
 }

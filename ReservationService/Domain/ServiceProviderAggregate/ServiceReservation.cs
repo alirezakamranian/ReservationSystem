@@ -15,7 +15,7 @@ namespace Domain.ServiceProviderAggregate
         public string Id{ get; set; }
         public DateTime FromTime { get; set; }
         public DateTime ToTime { get; set; }
-        public string CustomerId { get; set; }
+        public string CustomerUserId { get; set; }
         public string ServiceProviderId { get; set; }
         public string ServiceId { get; set; }
     }
