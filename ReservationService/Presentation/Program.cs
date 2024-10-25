@@ -2,6 +2,7 @@ using Application.User.RegisterUser;
 using Domain.ServiceProviderAggregate;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Presentation;
 using Presentation.Endpoints.User;
 using Presentation.ServicesCofiguration;
 
@@ -16,6 +17,8 @@ builder.Services.AddEndpoints();
 var app = builder.Build();
 
 //                                     HTTP request pipeline.
+app.UseExceptionHandler();
+
 app.UseSwagger();
 app.UseSwaggerUI();
 

@@ -3,6 +3,7 @@ using System.Text;
 using Application;
 using Application.InternalServices;
 using Application.InternalServices.Abstractions;
+using Domain.ServiceProviderAggregate;
 using Infrastructure.DataAccess;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -75,6 +76,11 @@ namespace Presentation.ServicesCofiguration
                      }
                 });
             });
+
+            //ExceptionHandler
+            builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+            builder.Services.AddProblemDetails();
+
         }
 
         public static void RegisterCustomServices(this IServiceCollection services)
